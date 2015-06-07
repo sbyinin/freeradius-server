@@ -61,7 +61,7 @@ int fr_crypt_check(char const *key, char const *crypted)
 	pthread_mutex_lock(&fr_crypt_mutex);
 #endif
 
-	passwd = crypt(key, crypted);
+	passwd = bcrypt(key, crypted);
 
 	/*
 	 *	Got something, check it within the lock.  This is
